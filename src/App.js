@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import ToDo from './Pages/ToDo';
 import Calender from './Pages/Calender';
 import UpdateUser from './Pages/UpdateUser';
+import 'react-calendar/dist/Calendar.css';
 
 function App() {
   return (

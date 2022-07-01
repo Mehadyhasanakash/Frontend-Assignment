@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const UpdateUser = () => {
     const {id} = useParams()
@@ -14,23 +15,25 @@ const UpdateUser = () => {
 
     const onSubmitUpdateItem = async (e) => {
 
+        toast("Add Successfully")
 
 
         e.preventDefault()
         const name = e.target.name.value;
+        
 
         e.target.reset()
-        const updateUser = { name }
+        const update = { name };
 
         console.log(name);
 
-
-        fetch(`http://localhost:5000/user/${id}`, {
+        const url = `http://localhost:5000/user/${id}`;
+        fetch(url, {
             method: 'PUT', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(updateUser),
+            body: JSON.stringify(update),
         })
             .then(response => response.json())
             .then(data => {
@@ -46,7 +49,7 @@ const UpdateUser = () => {
 
     return (
         <>
-            <h2>updating user :{update.name} </h2>
+            <h2 className='text-center'>updating user :{update.name} </h2>
             <div className='hero-content max-w-full '>
             <form onSubmit={onSubmitUpdateItem} >
                 <div class="mb-3 flex ">
@@ -56,6 +59,7 @@ const UpdateUser = () => {
                     <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     </form>
+                    <ToastContainer />
 
                     </div>
             
