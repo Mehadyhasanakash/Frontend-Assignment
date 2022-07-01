@@ -2,39 +2,39 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Nabvar = () => {
-    return (
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-blue-400">
-  <div class="container-fluid">
-    <a class="navbar-brand">Fronend-Assignmant</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link to="home" class="nav-link active" aria-current="page" >Home</Link>
-        </li>
-        <li class="nav-item">
-          <Link to="link" class="nav-link">Link</Link>
-        </li>
-        <li class="nav-item">
-          <Link to="favorites" class="nav-link">favorites</Link>
-        </li>
-        <li class="nav-item">
-          <Link to="favorites" class="nav-link">playlist</Link>
-        </li>
-        
+  const myItem = <>
+  
+  <li><Link to="/">Home</Link></li>
+  <li><Link to="/completed-tasks">Completed Tasks</Link></li>
+  <li><Link to="/to-do">To-Do</Link></li>
+  <li><Link to="/calender">Calendar</Link></li>
+  
+  </>
+  return (
+    <div>
+      <div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <label tabindex="0" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        {myItem}
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
+    <a class="btn btn-ghost normal-case text-xl">Interview Task</a>
   </div>
-</nav>
-        </div>
-    );
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal p-0">
+      {myItem}
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <a class="btn">Get started</a>
+  </div>
+</div>
+    </div>
+  );
 };
 
 export default Nabvar;

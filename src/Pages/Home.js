@@ -1,12 +1,22 @@
 import React from 'react';
-import Banner from '../Components/Banner';
+import useHook from '../Components/useHook';
+import DispalyHome from './DispalyHome';
 
 const Home = () => {
-    return (
-        <div>
-            <Banner/>
-        </div>
-    );
+  const [myuser , setUser] = useHook()
+  return (
+    <>
+      {
+        myuser.map( users => <DispalyHome
+        
+        users = {users}
+        ></DispalyHome>
+        
+        
+        )
+      }
+    </>
+  );
 };
 
 export default Home;
